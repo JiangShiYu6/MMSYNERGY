@@ -1,0 +1,15 @@
+torch==2.4.0
+dgl==2.4.0+cu124
+transformers==4.57.0
+
+huggingface-hub==0.13.4
+joblib==1.5.2
+networkx==3.2.1
+numpy==2.0.2
+pandas==2.3.3
+PyYAML==6.0
+rdkit==2023.3.2
+scikit-learn==3.6.0
+scipy==1.7.1
+tokenizers==0.13.3
+tqdm==4.62.3

@@ -1,0 +1,25 @@
+dataset:
+  name: heterograph
+  raw_dir: data/proc/pretrain_macro/
+  val_rate: 0.05
+  test_rate: 0.05
+  n_protein_features: 256
+  n_sideeffect_features: 256
+model:
+  num_layers: 2
+  hidden_dim: 128
+  num_heads: 8
+  dropout: 0.2
+trainer:
+  num_epochs: 500
+  optimizer:
+    lr: 1.e-4
+    weight_decay: 1.e-3
+  print_per_steps: 10
+  eval_per_steps: 10
+  save_per_steps: 10
+  patience: 5
+  max_keep: 5
+  max_keep_best: 5
+gpu: 0
+model_dir: output/pretrain_macro/macro_encoder

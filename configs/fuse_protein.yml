@@ -1,0 +1,33 @@
+dataset:
+  file: data/proc/fuse/protein_micro_macro.csv
+  val_rate: 0.1
+  feature:
+    micro: output/fuse/protein_micro_feat.pth
+    macro: output/fuse/protein_macro_feat.pth
+  loader:
+    train:
+      batch_size: 128
+      shuffle: True
+      pin_memory: True
+    valid:
+      batch_size: 256
+      shuffle: False
+      pin_memory: True
+model:
+  hidden_size: 128
+  dropout: 0.2
+trainer:
+  num_epochs: 20
+  optimizer:
+    lr: 1.e-4
+    weight_decay: 1.e-4
+  scheduler:
+    name: constant  # "constant" "linear" "cosine" "cosine_with_restarts" "polynomial" "constant" "constant_with_warmup" "inverse_sqrt"
+  print_per_steps: 20
+  eval_per_steps: 20
+  save_per_steps: 20
+  patience: 5
+  max_keep: 2
+  max_keep_best: 2
+gpu: 0
+model_dir: output/fuse
