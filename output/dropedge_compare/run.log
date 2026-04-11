@@ -1,0 +1,57 @@
+[2026-04-11 16:04:40] - INFO - drug feat shape: torch.Size([6295, 204])
+[2026-04-11 16:04:40] - INFO - protein feat shape: torch.Size([16065, 256])
+[2026-04-11 16:04:40] - INFO - sideeffect feat shape: torch.Size([5269, 256])
+[2026-04-11 16:04:40] - INFO - edge drug2drug: train 963504, val 53529, test 53529
+[2026-04-11 16:04:40] - INFO - edge drug2protein: train 11448, val 637, test 637
+[2026-04-11 16:04:40] - INFO - edge protein2protein: train 195444, val 10858, test 10858
+[2026-04-11 16:04:40] - INFO - edge sideeffect2drug: train 86988, val 4833, test 4833
+[2026-04-11 16:04:40] - INFO - edge drug2drug: train 963504, val 53529, test 53529
+[2026-04-11 16:04:40] - INFO - edge drug2protein: train 11448, val 637, test 637
+[2026-04-11 16:04:40] - INFO - edge protein2protein: train 195444, val 10858, test 10858
+[2026-04-11 16:04:40] - INFO - edge sideeffect2drug: train 86988, val 4833, test 4833
+[001/015]      baseline | drop_rate=0.00 | seed=18
+       val_auc=0.8819  test_auc=0.8847  test_ap=0.8362
+[002/015]      baseline | drop_rate=0.00 | seed=19
+       val_auc=0.8801  test_auc=0.8785  test_ap=0.8249
+[003/015]      baseline | drop_rate=0.00 | seed=20
+       val_auc=0.8742  test_auc=0.8735  test_ap=0.8228
+[004/015]      baseline | drop_rate=0.00 | seed=21
+       val_auc=0.8659  test_auc=0.8650  test_ap=0.8017
+[005/015]      baseline | drop_rate=0.00 | seed=22
+       val_auc=0.8747  test_auc=0.8765  test_ap=0.8149
+[006/015]      dropedge | drop_rate=0.20 | seed=18
+       val_auc=0.8911  test_auc=0.8935  test_ap=0.8536
+[007/015]      dropedge | drop_rate=0.20 | seed=19
+       val_auc=0.8792  test_auc=0.8788  test_ap=0.8238
+[008/015]      dropedge | drop_rate=0.20 | seed=20
+       val_auc=0.8765  test_auc=0.8744  test_ap=0.8247
+[009/015]      dropedge | drop_rate=0.20 | seed=21
+       val_auc=0.8875  test_auc=0.8868  test_ap=0.8364
+[010/015]      dropedge | drop_rate=0.20 | seed=22
+       val_auc=0.8636  test_auc=0.8648  test_ap=0.8136
+[011/015]  fixed_remove | drop_rate=0.20 | seed=18
+       val_auc=0.8829  test_auc=0.8846  test_ap=0.8365
+[012/015]  fixed_remove | drop_rate=0.20 | seed=19
+       val_auc=0.8535  test_auc=0.8523  test_ap=0.7784
+[013/015]  fixed_remove | drop_rate=0.20 | seed=20
+       val_auc=0.8758  test_auc=0.8738  test_ap=0.8267
+[014/015]  fixed_remove | drop_rate=0.20 | seed=21
+       val_auc=0.8784  test_auc=0.8760  test_ap=0.8380
+[015/015]  fixed_remove | drop_rate=0.20 | seed=22
+       val_auc=0.8826  test_auc=0.8804  test_ap=0.8434
+
+======================================================================
+  DropEdge Comparison (drop_rate=0.2)
+======================================================================
+      method  auc_mean  auc_std  ap_mean  ap_std  val_auc_mean  runs
+    baseline    0.8757   0.0072   0.8201  0.0128        0.8754     5
+    dropedge    0.8796   0.0111   0.8304  0.0153        0.8796     5
+fixed_remove    0.8734   0.0125   0.8246  0.0265        0.8746     5
+
+Interpretation:
+  DropEdge AUC +0.0040, Fixed +-0.0022
+  → Neither method shows significant improvement.
+  → The baseline may already be well-regularized at this drop rate.
+
+Saved raw results to: output/dropedge_compare/dropedge_compare_raw.csv
+Saved summary to: output/dropedge_compare/dropedge_compare_summary.csv
